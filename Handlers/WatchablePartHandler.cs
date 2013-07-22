@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using Lombiq.Watcher.Models;
@@ -11,17 +12,23 @@ namespace Lombiq.Watcher.Handlers
 {
     public class WatchablePartHandler : ContentHandler
     {
-        public WatchablePartHandler(IRepository<WatchablePartRecord> repository, IJsonConverter jsonConverter)
+        public WatchablePartHandler(
+            IRepository<WatchablePartRecord> repository,
+            IJsonConverter jsonConverter)
         {
             Filters.Add(StorageFilter.For(repository));
 
             OnActivated<WatchablePart>((ctx, part) =>
                 {
-                    part.WatcherIdsField.Loader(() => jsonConverter.Deserialize<IEnumerable<int>>(part.Record.WatcherIdsSerialized));
-                    part.WatcherIdsField.Setter(ids =>
+                    part.WatcherIdsField.Loader(() =>
                         {
-                            part.Record.WatcherIdsSerialized = jsonConverter.Serialize(ids);
-                            return ids;
+                            var seed = string.IsNullOrEmpty(part.Record.WatcherIdsSerialized) ? Enumerable.Empty<int>() : jsonConverter.Deserialize<IEnumerable<int>>(part.Record.WatcherIdsSerialized);
+                            var collection = new ObservableCollection<int>(seed);
+                            collection.CollectionChanged += (sender, e) =>
+                                {
+                                    part.Record.WatcherIdsSerialized = jsonConverter.Serialize((IEnumerable<int>)collection);
+                                };
+                            return collection;
                         });
                 });
         }

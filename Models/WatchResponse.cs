@@ -7,6 +7,7 @@ namespace Lombiq.Watcher.Models
 {
     public class WatchResponse
     {
+        public int WatcherCount { get; set; }
         public string Message { get; set; }
     }
 }

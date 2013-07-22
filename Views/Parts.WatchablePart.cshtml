@@ -1,9 +1,36 @@
-﻿@{
+﻿@using Piedone.HelpfulLibraries.Utilities
+
+@{
+    Style.Include("lombiq-watcher.css");
+    Script.Include("lombiq-watcher.js").AtFoot();
+
     var part = (Lombiq.Watcher.Models.WatchablePart)Model.ContentPart;
-    //Html.ActionLink(T("Watch").Text, 
 }
 
-@if (Authorizer.Authorize(Lombiq.Watcher.Permissions.WatchItems))
+@if (WorkContext.CurrentUser != null && Authorizer.Authorize(Lombiq.Watcher.Permissions.WatchItems))
 {
+    var isWatching = part.WatcherIds.Contains(WorkContext.CurrentUser.Id);
+    var linkClass = isWatching ? "watching" : "not-watching";
     
+    <div class="lombiq-watcher-controls">
+        <a href="#" data-item-id="@part.ContentItem.Id" class="lombiq-watcher-watch-link @linkClass">
+            <span class="watching-text" title="@T("Unwatch")">@T("Watching")</span><span class="not-watching-text">@T("Watch")</span></a>@* </a> in the same line, otherwise there would be a space till the end of the anchor. *@
+        <span class="lombiq-watcher-count lombiq-watcher-count-@part.ContentItem.Id">(@part.WatcherIds.Count)</span>
+    </div>
+}
+
+@using (Script.Foot())
+{
+    using (this.CaptureOnce())
+    {
+    <script type="text/javascript">
+        (function ($) {
+            $(function () {
+                $.lombiq.watcher.init("@Url.Action("Watch", "Home", new { Area = "Lombiq.Watcher" })", "@Url.Action("Unwatch", "Home", new { Area = "Lombiq.Watcher" })");
+            });
+        })(jQuery);
+    </script>
+    
+    @Html.AntiForgeryToken() // There might not be any antiforgery token on the page, but it's needed for the POST.
+    }
 }

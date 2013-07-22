@@ -1,0 +1,10 @@
+﻿.lombiq-watcher-watch-link .watching-text,
+.lombiq-watcher-watch-link .not-watching-text {
+  display: none;
+}
+.lombiq-watcher-watch-link.watching .watching-text {
+  display: inline;
+}
+.lombiq-watcher-watch-link.not-watching .not-watching-text {
+  display: inline;
+}

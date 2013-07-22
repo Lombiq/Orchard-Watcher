@@ -49,7 +49,7 @@ namespace Lombiq.Watcher.Drivers
         {
             var partName = part.PartDefinition.Name;
 
-            context.ImportAttribute(partName, "WatcherIds", value => part.WatcherIds = value.Split(',').Select(id => int.Parse(id)));
+            context.ImportAttribute(partName, "WatcherIds", value => part.WatcherIds = value.Split(',').Select(id => int.Parse(id)).ToList());
         }
     }
 }

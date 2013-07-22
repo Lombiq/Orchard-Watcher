@@ -32,9 +32,11 @@ namespace Lombiq.Watcher.Controllers
             ActionResult invalidResult;
             if (!IsValid(itemId, out item, out invalidResult)) return invalidResult;
 
-            item.As<WatchablePart>().AddWatcher(_orchardServices.WorkContext.CurrentUser.ContentItem.Id);
+            var ids = item.As<WatchablePart>().WatcherIds;
+            var userId = _orchardServices.WorkContext.CurrentUser.ContentItem.Id;
+            if (!ids.Contains(userId)) ids.Add(userId);
 
-            return Json(new WatchResponse { Message = T("You're now watching this item.").Text });
+            return Json(new WatchResponse { WatcherCount = ids.Count, Message = T("You're now watching this item.").Text });
         }
 
         [HttpPost]
@@ -44,7 +46,11 @@ namespace Lombiq.Watcher.Controllers
             ActionResult invalidResult;
             if (!IsValid(itemId, out item, out invalidResult)) return invalidResult;
 
-            return Json(new WatchResponse { Message = T("You don't watch this item anymore.").Text });
+            var ids = item.As<WatchablePart>().WatcherIds;
+            var userId = _orchardServices.WorkContext.CurrentUser.ContentItem.Id;
+            if (ids.Contains(userId)) ids.Remove(userId);
+
+            return Json(new WatchResponse { WatcherCount = ids.Count, Message = T("You don't watch this item anymore.").Text });
         }
 
 
@@ -73,7 +79,7 @@ namespace Lombiq.Watcher.Controllers
 
             if (!item.Has<WatchablePart>())
             {
-                invalidResult = Json(new WatchResponse { Message = T("You can't watch this item.").Text });
+                invalidResult = HttpNotFound();
                 return false;
             }
 
