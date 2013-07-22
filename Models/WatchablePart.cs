@@ -18,6 +18,24 @@ namespace Lombiq.Watcher.Models
             get { return _watcherIds.Value; }
             set { _watcherIds.Value = value; }
         }
+
+        public void AddWatcher(int id)
+        {
+            if (WatcherIds.Contains(id)) return;
+
+            var watchers = WatcherIds.ToList();
+            watchers.Add(id);
+            WatcherIds = watchers;
+        }
+
+        public void RemoveWatcher(int id)
+        {
+            if (!WatcherIds.Contains(id)) return;
+
+            var watchers = WatcherIds.ToList();
+            watchers.Remove(id);
+            WatcherIds = watchers;
+        }
     }
 
 

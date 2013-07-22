@@ -1,3 +1,9 @@
 ﻿@{
     var part = (Lombiq.Watcher.Models.WatchablePart)Model.ContentPart;
+    //Html.ActionLink(T("Watch").Text, 
+}
+
+@if (Authorizer.Authorize(Lombiq.Watcher.Permissions.WatchItems))
+{
+    
 }
