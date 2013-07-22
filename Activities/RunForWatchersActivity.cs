@@ -11,16 +11,7 @@ namespace Lombiq.Watcher.Activities
 {
     public class RunForWatchersActivity : Task
     {
-        private readonly IWorkContextAccessor _wca;
-
         public Localizer T { get; set; }
-
-
-        public RunForWatchersActivity(IWorkContextAccessor wca)
-        {
-            _wca = wca;
-        }
-
 
 
         public override string Name
@@ -45,15 +36,15 @@ namespace Lombiq.Watcher.Activities
 
         public override IEnumerable<LocalizedString> Execute(WorkflowContext workflowContext, ActivityContext activityContext)
         {
-            var counter = GetState();
+            var counter = GetState(workflowContext, activityContext);
             if (counter < 3)
             {
-                SetState(++counter);
+                SetState(workflowContext, activityContext, ++counter);
                 yield return T("Run for the next watcher");
             }
             else if (counter == 3)
             {
-                SetState(++counter);
+                SetState(workflowContext, activityContext, ++counter);
                 yield return T("Done");
             }
             else
@@ -63,23 +54,20 @@ namespace Lombiq.Watcher.Activities
         }
 
 
-        private int GetState()
+        private int GetState(WorkflowContext workflowContext, ActivityContext activityContext)
         {
-            var wc = _wca.GetContext();
-            var state = wc.GetState<int?>(Name + ".State");
-
-            if (state == null)
+            if (!workflowContext.HasStateFor(activityContext.Record, Name + ".State"))
             {
-                SetState(0);
+                SetState(workflowContext, activityContext, 0);
                 return 0;
             }
 
-            return state.Value;
+            return workflowContext.GetStateFor<int>(activityContext.Record, Name + ".State");
         }
 
-        private void SetState(int state)
+        private void SetState(WorkflowContext workflowContext, ActivityContext activityContext, int state)
         {
-            _wca.GetContext().SetState<int?>(Name + ".State", state);
+            workflowContext.SetStateFor(activityContext.Record, Name + ".State", state);
         }
     }
 }
