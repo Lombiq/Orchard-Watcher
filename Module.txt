@@ -10,4 +10,4 @@ Features:
 		Name: Watcher
         Description: Enables watching content items and geting notified on modifications.
 		Category: Messaging
-		Dependencies: Piedone.HelpfulLibraries.Utilities
+		Dependencies: Orchard.Workflows, Piedone.HelpfulLibraries.Utilities
