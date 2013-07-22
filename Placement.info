@@ -1,4 +1,7 @@
 ﻿<Placement>
-  <Place Parts_WatchablePart="Content:5"
-         Parts_WatchablePart_Edit="Content:5"/>
+  <Place Parts_WatchablePart_Edit="Content:5"/>
+
+  <Match DisplayType="Detail">
+    <Place Parts_WatchablePart="Content:5"/>
+  </Match>
 </Placement>

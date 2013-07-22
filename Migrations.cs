@@ -22,6 +22,7 @@ namespace Lombiq.Watcher
             ContentDefinitionManager.AlterPartDefinition(typeof(WatchablePart).Name,
                 part => part
                     .Attachable()
+                    .WithDescription("Makes a content item watchable, i.e. users can sign up to get notified about events related to the item.")
                 );
 
 
