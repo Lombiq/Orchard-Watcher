@@ -1,10 +1,17 @@
-﻿.lombiq-watcher-watch-link .watching-text,
-.lombiq-watcher-watch-link .not-watching-text {
+﻿.lombiq-watcher-controls .lombiq-watcher-watch-link .watching-text,
+.lombiq-watcher-controls .lombiq-watcher-watch-link .not-watching-text {
   display: none;
 }
-.lombiq-watcher-watch-link.watching .watching-text {
+.lombiq-watcher-controls .lombiq-watcher-watch-link.watching .watching-text {
   display: inline;
 }
-.lombiq-watcher-watch-link.not-watching .not-watching-text {
+.lombiq-watcher-controls .lombiq-watcher-watch-link.not-watching .not-watching-text {
   display: inline;
+}
+.lombiq-watcher-controls .lombiq-watcher-error {
+  display: none;
+}
+.lombiq-watcher-controls.error .lombiq-watcher-error {
+  display: inline;
+  color: darkred;
 }

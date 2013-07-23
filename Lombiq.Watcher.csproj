@@ -118,9 +118,6 @@
     <Content Include="Views\Parts.WatchablePart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\EditorTemplates\Parts.WatchablePart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Styles\lombiq-watcher.less" />
   </ItemGroup>
   <PropertyGroup>

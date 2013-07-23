@@ -12,10 +12,10 @@
     var isWatching = part.WatcherIds.Contains(WorkContext.CurrentUser.Id);
     var linkClass = isWatching ? "watching" : "not-watching";
     
-    <div class="lombiq-watcher-controls">
-        <a href="#" data-item-id="@part.ContentItem.Id" class="lombiq-watcher-watch-link @linkClass">
-            <span class="watching-text" title="@T("Unwatch")">@T("Watching")</span><span class="not-watching-text">@T("Watch")</span></a>@* </a> in the same line, otherwise there would be a space till the end of the anchor. *@
-        <span class="lombiq-watcher-count lombiq-watcher-count-@part.ContentItem.Id">(@part.WatcherIds.Count)</span>
+    <div class="lombiq-watcher-controls lombiq-watcher-controls-@part.ContentItem.Id">
+        <a href="#" data-item-id="@part.ContentItem.Id" class="lombiq-watcher-watch-link @linkClass"><span class="watching-text" title="@T("Unwatch")">@T("Watching")</span><span class="not-watching-text">@T("Watch")</span></a>@* </a> in the same line, otherwise there would be a space till the end of the anchor. *@
+        <span class="lombiq-watcher-count">(@part.WatcherIds.Count)</span>
+        <span class="lombiq-watcher-error">@T("There was some error, sorry... Please try again later.")</span>
     </div>
 }
 

@@ -1,17 +1,31 @@
-﻿.lombiq-watcher-watch-link
+﻿.lombiq-watcher-controls
 {
-    .watching-text, .not-watching-text
+    .lombiq-watcher-watch-link
+    {
+        .watching-text, .not-watching-text
+        {
+            display: none;
+        }
+
+        &.watching .watching-text
+        {
+            display: inline;
+        }
+
+        &.not-watching .not-watching-text
+        {
+            display: inline;
+        }
+    }
+
+    .lombiq-watcher-error
     {
         display: none;
     }
 
-    &.watching .watching-text
+    &.error .lombiq-watcher-error
     {
         display: inline;
-    }
-
-    &.not-watching .not-watching-text
-    {
-        display: inline;
+        color: darkred;
     }
 }
