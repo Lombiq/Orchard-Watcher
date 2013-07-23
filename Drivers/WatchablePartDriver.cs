@@ -23,21 +23,6 @@ namespace Lombiq.Watcher.Drivers
                 () => shapeHelper.Parts_WatchablePart());
         }
 
-        protected override DriverResult Editor(WatchablePart part, dynamic shapeHelper)
-        {
-            return ContentShape("Parts_WatchablePart_Edit",
-                () => shapeHelper.EditorTemplate(
-                    TemplateName: "Parts.WatchablePart",
-                    Model: part,
-                    Prefix: Prefix));
-        }
-
-        protected override DriverResult Editor(WatchablePart part, IUpdateModel updater, dynamic shapeHelper)
-        {
-            updater.TryUpdateModel(part, Prefix, null, null);
-            return Editor(part, shapeHelper);
-        }
-
         protected override void Exporting(WatchablePart part, ExportContentContext context)
         {
             var element = context.Element(part.PartDefinition.Name);
