@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\RunForWatchersActivity.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WatchController.cs" />
     <Compile Include="Drivers\WatchablePartDriver.cs" />
     <Compile Include="Handlers\WatchablePartHandler.cs" />
     <Compile Include="Migrations.cs" />

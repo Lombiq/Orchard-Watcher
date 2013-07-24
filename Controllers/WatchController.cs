@@ -10,14 +10,14 @@ using Lombiq.Watcher.Models;
 
 namespace Lombiq.Watcher.Controllers
 {
-    public class HomeController : Controller
+    public class WatchController : Controller
     {
         private readonly IOrchardServices _orchardServices;
 
         public Localizer T { get; set; }
 
 
-        public HomeController(IOrchardServices orchardServices)
+        public WatchController(IOrchardServices orchardServices)
         {
             _orchardServices = orchardServices;
 
