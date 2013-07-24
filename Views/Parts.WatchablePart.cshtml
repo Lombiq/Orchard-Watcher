@@ -21,7 +21,7 @@
 
 @using (Script.Foot())
 {
-    using (this.CaptureOnce())
+    if (this.WasNotDisplayed("LombiqWatcherInit"))
     {
     <script type="text/javascript">
         (function ($) {
