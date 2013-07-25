@@ -4,11 +4,12 @@
             watcher: {
                 _watchUrl: "",
                 _unwatchUrl: "",
-                _commonPostValues: { "__RequestVerificationToken": $("input[name='__RequestVerificationToken']").val() },
+                _commonPostValues: null,
 
                 init: function (watchUrl, unwatchUrl) {
                     this._watchUrl = watchUrl;
                     this._unwatchUrl = unwatchUrl;
+                    this._commonPostValues = { "__RequestVerificationToken": $("input[name='__RequestVerificationToken']").val() };
 
                     var that = this;
                     $(".lombiq-watcher-watch-link").click(function () {
