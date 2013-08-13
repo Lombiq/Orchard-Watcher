@@ -28,7 +28,6 @@ namespace Lombiq.Watcher.Models
                 }
             }
         }
-
     }
 
 
