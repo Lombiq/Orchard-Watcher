@@ -67,6 +67,9 @@
     <Content Include="Styles\lombiq-watcher.css">
       <DependentUpon>lombiq-watcher.less</DependentUpon>
     </Content>
+    <Content Include="Styles\workflows-activity-run-for-watchers.css">
+      <DependentUpon>workflows-activity-run-for-watchers.less</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\Web.config" />
@@ -119,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Styles\lombiq-watcher.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\workflows-activity-run-for-watchers.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
