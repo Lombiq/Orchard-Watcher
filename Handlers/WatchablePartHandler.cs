@@ -22,11 +22,11 @@ namespace Lombiq.Watcher.Handlers
                 {
                     part.WatcherIdsField.Loader(() =>
                         {
-                            var seed = string.IsNullOrEmpty(part.Record.WatcherIdsSerialized) ? Enumerable.Empty<int>() : jsonConverter.Deserialize<IEnumerable<int>>(part.Record.WatcherIdsSerialized);
+                            var seed = string.IsNullOrEmpty(part.WatcherIdsSerialized) ? Enumerable.Empty<int>() : jsonConverter.Deserialize<IEnumerable<int>>(part.WatcherIdsSerialized);
                             var collection = new ObservableCollection<int>(seed);
                             collection.CollectionChanged += (sender, e) =>
                                 {
-                                    part.Record.WatcherIdsSerialized = jsonConverter.Serialize((IEnumerable<int>)collection);
+                                    part.WatcherIdsSerialized = jsonConverter.Serialize((IEnumerable<int>)collection);
                                 };
                             return collection;
                         });

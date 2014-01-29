@@ -22,19 +22,5 @@ namespace Lombiq.Watcher.Drivers
             return ContentShape("Parts_WatchablePart",
                 () => shapeHelper.Parts_WatchablePart());
         }
-
-        protected override void Exporting(WatchablePart part, ExportContentContext context)
-        {
-            var element = context.Element(part.PartDefinition.Name);
-
-            element.SetAttributeValue("WatcherIds", string.Join(",", part.WatcherIds));
-        }
-
-        protected override void Importing(WatchablePart part, ImportContentContext context)
-        {
-            var partName = part.PartDefinition.Name;
-
-            context.ImportAttribute(partName, "WatcherIds", value => part.WatcherIds = value.Split(',').Select(id => int.Parse(id)).ToList());
-        }
     }
 }

@@ -28,6 +28,12 @@ namespace Lombiq.Watcher.Models
                 }
             }
         }
+
+        public string WatcherIdsSerialized
+        {
+            get { return Retrieve(x => x.WatcherIdsSerialized); }
+            set { Store(x => x.WatcherIdsSerialized, value); }
+        }
     }
 
 
