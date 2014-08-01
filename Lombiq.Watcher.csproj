@@ -132,7 +132,7 @@
     <Content Include="Styles\workflows-activity-run-for-watchers.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Licence.md" />
+    <None Include="Licence.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
