@@ -133,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Licence.md" />
+    <Content Include="Styles\workflows-activity-run-for-watchers.css.map">
+      <DependentUpon>workflows-activity-run-for-watchers.css</DependentUpon>
+    </Content>
+    <Content Include="Styles\lombiq-watcher.css.map">
+      <DependentUpon>lombiq-watcher.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
