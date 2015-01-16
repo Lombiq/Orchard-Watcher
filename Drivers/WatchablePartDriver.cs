@@ -22,5 +22,15 @@ namespace Lombiq.Watcher.Drivers
             return ContentShape("Parts_WatchablePart",
                 () => shapeHelper.Parts_WatchablePart());
         }
+
+        protected override void Exporting(WatchablePart part, ExportContentContext context)
+        {
+            context.Element(part.PartDefinition.Name).SetAttributeValue("WatcherIdsSerialized", part.WatcherIdsSerialized);
+        }
+
+        protected override void Importing(WatchablePart part, ImportContentContext context)
+        {
+            context.ImportAttribute(part.PartDefinition.Name, "WatcherIdsSerialized", value => part.WatcherIdsSerialized = value);
+        }
     }
 }
