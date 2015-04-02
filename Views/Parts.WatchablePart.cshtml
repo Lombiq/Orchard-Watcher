@@ -2,6 +2,8 @@
 
 @{
     Style.Include("lombiq-watcher.css");
+
+    Script.Require("jQuery").AtHead();
     Script.Include("lombiq-watcher.js").AtFoot();
 
     var part = (Lombiq.Watcher.Models.WatchablePart)Model.ContentPart;
