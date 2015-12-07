@@ -1,7 +1,7 @@
 Name: Watcher
 AntiForgery: enabled
 Author: Lombiq
-Website: http://orchardwatcher.codeplex.com/
+Website: https://github.com/Lombiq/Orchard-Watcher
 Version: 1.0
 OrchardVersion: 1.9.0
 Description: Enables watching content items and geting notified on modifications.
