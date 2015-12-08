@@ -25,6 +25,7 @@ Containers are taken into account, for three levels. This means that if you watc
 
 In the "Run for the next watcher" branch the User token is filled with the user object of the watcher. This way you can use the User tokens to e.g. send an e-mail to the watcher.
 
+The module is also available for [DotNest](http://dotnest.com/) sites.
 
 The module's source is available in two public source repositories, automatically mirrored in both directions with [Git-hg Mirror](https://githgmirror.com):
 
