@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Styles/lombiq-watcher.css",
+    "inputFile": "Styles/lombiq-watcher.less"
+  },
+  {
+    "outputFile": "Styles/workflows-activity-run-for-watchers.css",
+    "inputFile": "Styles/workflows-activity-run-for-watchers.less"
+  }
+]
