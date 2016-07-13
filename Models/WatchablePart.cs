@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Records;
-using Orchard.Core.Common.Utilities;
+using Orchard.ContentManagement.Utilities;
 using Orchard.Data.Conventions;
 
 namespace Lombiq.Watcher.Models
