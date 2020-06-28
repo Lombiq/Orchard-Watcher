@@ -1,8 +1,8 @@
-# Watcher Orchard module Readme
+# Watcher Orchard module
 
 
 
-## Project Description
+## About
 
 Orchard module for watching content items and geting notified on modifications.
 
@@ -27,12 +27,9 @@ In the "Run for the next watcher" branch the User token is filled with the user 
 
 The module is also available for [DotNest](http://dotnest.com/) sites.
 
-The module's source is available in two public source repositories, automatically mirrored in both directions with [Git-hg Mirror](https://githgmirror.com):
 
-- [https://bitbucket.org/Lombiq/orchard-watcher](https://bitbucket.org/Lombiq/orchard-watcher) (Mercurial repository)
-- [https://github.com/Lombiq/Orchard-Watcher](https://github.com/Lombiq/Orchard-Watcher) (Git repository)
+## Contributing and support
 
-Bug reports, feature requests and comments are warmly welcome, **please do so via GitHub**.
-Feel free to send pull requests too, no matter which source repository you choose for this purpose.
+Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
-This project is developed by [Lombiq Technologies Ltd](http://lombiq.com/). Commercial-grade support is available through Lombiq.
+This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
